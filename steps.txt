@@ -1,0 +1,13 @@
+0- bare - (mavin add tools - with name)
+(Invoke top-level Maven targets)
+1 - clean validate compile
+2 - -P metrics pmd:pmd checkstyle:checkstyle findbugs:findbugs ( post build steps add all these )
+3 - package (post build step add (WAR/EAR files **/*.war) ( Context path myapp) (tomcat 9)
+
+docker deploy 
+docker stop javatomdeploy || true
+docker rm -f javatomdeploy || true
+
+kube
+
+cat .kube/config (to get credentials)
