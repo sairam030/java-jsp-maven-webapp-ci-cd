@@ -1,0 +1,46 @@
+apiVersion: apps/v1
+kind: Deployment
+metadata:
+  name: java-jsp-webapp-deployment
+  labels:
+    app: java-jsp-webapp
+spec:
+  replicas: 2
+  selector:
+    matchLabels:
+      app: java-jsp-webapp
+  template:
+    metadata:
+      labels:
+        app: java-jsp-webapp
+    spec:
+      containers:
+      - name: java-jsp-webapp
+        image: your-docker-registry/java-jsp-webapp:latest
+        ports:
+        - containerPort: 8080
+        # Example environment variables (if required)
+        env:
+        - name: ENV
+          value: "production"
+        # Optional resource limits
+        resources:
+          limits:
+            cpu: "500m"
+            memory: "512Mi"
+          requests:
+            cpu: "250m"
+            memory: "256Mi"
+        # Optional readiness/liveness probes
+        readinessProbe:
+          httpGet:
+            path: /
+            port: 8080
+          initialDelaySeconds: 20
+          periodSeconds: 10
+        livenessProbe:
+          httpGet:
+            path: /
+            port: 8080
+          initialDelaySeconds: 30
+          periodSeconds: 15
