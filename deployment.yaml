@@ -16,7 +16,7 @@ spec:
     spec:
       containers:
       - name: java-jsp-webapp
-        image: your-docker-registry/java-jsp-webapp:latest
+        image: sairam030/javatomdeploy:v1
         ports:
         - containerPort: 8080
         # Example environment variables (if required)
