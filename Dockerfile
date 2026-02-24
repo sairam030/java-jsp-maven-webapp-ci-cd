@@ -1,4 +1,4 @@
-FROM sairam030/tomcat9maven:v1
+FROM sairam030/javatomdeploy:v1
 WORKDIR /app
 COPY . /app
 RUN mvn package
